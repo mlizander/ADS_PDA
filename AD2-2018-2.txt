@@ -1,0 +1,69 @@
+QUESTÃO 1
+inicio
+	numJogos <- 12.0
+	jogoSemFazerGol <- 0
+	numVitorias <- 0
+	numEmpates <- 0
+	saldoDeGols <- 0
+	totalDeGols <- 0
+
+	para i <- 1 até numJogos faça
+		imprima("Jogo ", i, "?")
+		leia(golsMarcados[i], golsSofridos[i])
+
+		se golsMarcados[i] = 0 então
+			jogoSemFazerGol <- jogoSemFazerGol + 1
+		fim se
+		
+		se golsMarcados[i] > golsSofridos[i] então
+			numVitorias <- numVitorias + 1
+		fim se
+
+		se golsMarcados[i] = golsSofridos[i] então
+			numEmpates <- numEmpates + 1
+		fim se
+		saldoDeGols <- saldoDeGols + golsMarcados[i] - golsSofridos[i]
+		totalDeGols <- totalDeGols + golsMarcados[i]
+	próximo i
+
+	mediaGols <- totalDeGols / numJogos
+	totalPontos <- numVitorias*3 + numEmpates
+
+	imprima("Pontos: ", totalPontos)
+	imprima("Saldo de gols: ", saldoDeGols)
+	imprima("Jogos sem fazer gols: ", jogoSemFazerGol)
+	imprima("Média de gols por jogo: ", mediaGols)
+fim
+
+QUESTÃO 2
+
+==com para ===
+
+função trocaPares(entradas: frase)
+inicio
+	resultado <- frase
+	para i <- 1 até tamanho(frase) passo 2 faça
+		se i < tamanho(frase)-1 então
+			aux <- frase[i]
+			frase[i] <- frase[i+1]
+			frase[i+1] <- aux
+		fim se
+	próximo i
+fim
+
+
+===com enquanto===
+
+função trocaPares(entradas: frase)
+inicio
+	resultado <- frase
+	posicao <- 1
+	enquanto posicao < tamanho(frase)  faça
+		se posicao < tamanho(frase) -1 então
+			aux <- frase[posicao]
+			frase[posicao] <- frase[posicao+1]
+			frase[posicao+1] <- aux
+		fim se
+		posicao <- posicao + 2
+	fim enquanto
+fim
